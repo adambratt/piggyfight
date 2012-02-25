@@ -22,7 +22,7 @@ class Photo(models.Model):
     name=models.CharField(max_length=100,blank=True,unique=True)
     photo=models.ImageField(upload_to=photo_upload_name,blank=False)
     album=models.ForeignKey(Album,null=True,blank=True)
-    member=models.ForeignKey("members.Member")
+    member=models.ForeignKey("members.Member", blank=True)
     caption=models.TextField(blank=True, null=True)
     create_ts=models.DateTimeField(auto_now_add=True)
     def save(self, *args, **kwargs):
