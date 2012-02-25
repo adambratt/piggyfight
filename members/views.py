@@ -32,7 +32,7 @@ def upload_photos(request):
         form=PhotoForm()
     return render(request,'members/upload_photo.html',{'form':form, 'profile': profile})
     
-def upload_photos(request):
+def upload_photo(request):
     if request.method=='POST':
         form=PhotoForm(request.POST, request.FILES)
         if form.is_valid():
