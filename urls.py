@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^members/login/$', 'django.contrib.auth.views.login', {'template_name': 'members/login.html'}),
     url(r'^members/logout/$', 'members.views.do_logout'),
     # Image serving
-    url(r'^image/(?P<image_id>\w+)/(?P<size>\w+)/$', 'images.views.load'),
+    url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
     # Member Views
     url(r'^dashboard/$', 'members.views.dashboard'),
     url(r'^members/upload_photo$', 'members.views.upload_photo'),

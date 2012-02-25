@@ -7,53 +7,34 @@ import settings
 import os
 
 # Create your views here.
-def load(request, image_id, size):
+def load(request, image_id, **kwargs):
     try:
         p = Photo.objects.get(name=image_id)
     except:
         raise Http404
-    if not size or size == 'full':
-        return redirect(settings.MEDIA_URL+'images/full/'+image_id)
-    if size not in settings.IMAGE_SIZES:
-        raise Http404
+    
+    if (not 'width' in kwargs) or (not 'height' in kwargs):
+        size = 'full'
+    else:
+        size = width+'x'+height
+    
     # get size dir/check if image exists
     sizedir=settings.MEDIA_ROOT+'images/'+size+'/'
+    
     if os.path.isfile(sizedir+image_id):
         return redirect(settings.MEDIA_URL+'images/'+size+'/'+image_id)
+    elif size == 'full':
+        return Http404 # Must not exist
+    
+    # make image dir
     if not os.path.exists(sizedir):
         os.makedirs(sizedir)
+        
     # open up the image
     img=Image.open(p.photo.path)
-    iw=p.photo.width
-    ih=p.photo.height
-    nw=settings.IMAGE_SIZES[size][0]
-    nh=settings.IMAGE_SIZES[size][1]
-    auto=False
-    if 2 in settings.IMAGE_SIZES[size]:
-        auto=settings.IMAGE_SIZES[size][2]
-    # resizing needed
-    if (iw, ih) != (nw, nh):
-        iratio=float(iw)/float(ih)
-        nratio=float(nw)/float(nh)
-        if img.mode not in ('L','RGB'):
+    if img.mode not in ('L','RGB'):
             img=img.convert('RGB')
-        if iratio > nratio:
-            # image is too wide. aspectw is the width with proper ratio
-            aspectw=int(round(nh*iratio))
-            img=img.resize((aspectw, nh), Image.ANTIALIAS)
-            if not auto:
-                # then we crop it to the correct size
-                middle=int(round((aspectw-nw)/2.0))
-                img=img.crop((middle,0,middle+nw,nh))
-        elif iratio < nratio:
-            # image is too tall
-            aspecth=int(round(nw/iratio))
-            img=img.resize((nw, aspecth), Image.ANTIALIAS)
-            if not auto:
-                middle=int(round((aspecth-nh)/2.0))
-                img=img.crop((0,middle,nw,middle+nh))
-        else:
-            # proper ratio
-            img=img.resize((nw,nh), Image.ANTIALIAS)
+    img=img.resize((width, height), Image.ANTIALIAS)
     img.save(sizedir+image_id,'PNG')
+    
     return redirect(settings.MEDIA_URL+'images/'+size+'/'+image_id)

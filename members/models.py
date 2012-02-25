@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 class Member(models.Model):
     user=models.OneToOneField(User, primary_key=True) 
     total_points=models.IntegerField(default=25)
-    mainphoto=models.ForeignKey(Photo,related_name="members_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
+    mainphoto=models.ForeignKey('images.Photo',related_name="members_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
     def __unicode__(self):
         return self.user.username
     def _get_avatar(self):

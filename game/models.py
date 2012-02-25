@@ -10,7 +10,7 @@ class Store(models.Model):
     category = models.ForeignKey('game.Category', blank=True)
     
 class Post(models.Model):
-    mainphoto=models.ForeignKey(Photo,related_name="post_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
+    mainphoto=models.ForeignKey('images.Photo',related_name="post_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
     store = models.ForeignKey('game.Store')
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     savings = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
