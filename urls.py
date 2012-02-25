@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
     # Member Views
     url(r'^dashboard/$', 'members.views.dashboard'),
-    url(r'^members/upload_photo$', 'members.views.upload_photo'),
+    url(r'^members/upload_photo/$', 'members.views.upload_photo'),
     # Group Views
     url(r'^group/create/$', 'game.views.create_group'),
     url(r'^group/(?P<group_id>\w+)/$', 'game.views.group'),

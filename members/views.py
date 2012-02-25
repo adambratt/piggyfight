@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from members.forms import PhotoForm
+from django.contrib.auth.decorators import login_required
 
 
 ##### Views #####
