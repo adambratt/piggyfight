@@ -34,7 +34,7 @@ def load(request, image_id, **kwargs):
     img=Image.open(p.photo.path)
     if img.mode not in ('L','RGB'):
             img=img.convert('RGB')
-    img=img.resize((kwargs['width'], kwargs['height']), Image.ANTIALIAS)
+    img=img.resize((int(kwargs['width']), int(kwargs['height'])), Image.ANTIALIAS)
     img.save(sizedir+image_id,'PNG')
     
     return redirect(settings.MEDIA_URL+'images/'+size+'/'+image_id)
