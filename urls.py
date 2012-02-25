@@ -7,7 +7,7 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
     # Authentication
     url(r'^members/login/$', 'django.contrib.auth.views.login', {'template_name': 'members/login.html'}),
-    url(r'^members/logout/$', 'members.views.do_logout'),
+    url(r'^members/logout/$', 'members.views.logout'),
     # Image serving
     url(r'^image/(?P<image_id>\w+)/$', 'images.views.load'),
     url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
