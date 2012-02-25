@@ -20,5 +20,5 @@ urlpatterns = patterns('',
     # Game Views
     url(r'^game/leaderboard/$', 'game.views.leaderboard'),
     url(r'^game/rules/$', 'game.views.rules'),
-    url(r'^game/verify/$', 'games.views.verify'),
+    url(r'^game/verify/$', 'game.views.verify'),
 )
