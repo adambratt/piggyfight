@@ -16,7 +16,7 @@ def load(request, image_id, **kwargs):
     if (not 'width' in kwargs) or (not 'height' in kwargs):
         size = 'full'
     else:
-        size = width+'x'+height
+        size = kwargs['width']+'x'+kwargs['height']
     
     # get size dir/check if image exists
     sizedir=settings.MEDIA_ROOT+'images/'+size+'/'
@@ -34,7 +34,7 @@ def load(request, image_id, **kwargs):
     img=Image.open(p.photo.path)
     if img.mode not in ('L','RGB'):
             img=img.convert('RGB')
-    img=img.resize((width, height), Image.ANTIALIAS)
+    img=img.resize((kwargs['width'], kwargs['height']), Image.ANTIALIAS)
     img.save(sizedir+image_id,'PNG')
     
     return redirect(settings.MEDIA_URL+'images/'+size+'/'+image_id)
