@@ -30,5 +30,5 @@ class Badge(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    owner = models.ForeignKey('members.Member')
-    members=models.ManyToManyField('members.Member', through='members.Membership',blank=True)
+    owner = models.ForeignKey('members.Member', related_name='group_owner')
+    members=models.ManyToManyField('members.Member', related_name='group_people', through='members.Membership',blank=True)
