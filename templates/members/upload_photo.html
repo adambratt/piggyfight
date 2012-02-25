@@ -1,0 +1,16 @@
+{% extends template %}
+{% block pagetitle %}Upload Photo{% endblock %}
+
+{% block inner %}
+	<div class='page-divider'>
+		<h2>Upload Photo</h2>
+	</div>
+	<div class='page-box clearfix'>
+		<form method='post' action='' enctype='multipart/form-data'>
+			{% include "form.html" with form=form %}
+			<div class='submit'>
+				<input type='submit' value='Upload' class='button' />
+			</div>
+		</form>
+	</div>
+{% endblock %}

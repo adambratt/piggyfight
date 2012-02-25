@@ -4,9 +4,19 @@ from django.db.models.signals import post_save
 class Member(models.Model):
     user=models.OneToOneField(User, primary_key=True) 
     total_points=models.IntegerField(default=25)
-    
+    mainphoto=models.ForeignKey(Photo,related_name="members_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
     def __unicode__(self):
         return self.user.username
+    def _get_avatar(self):
+        if(self.mainphoto): 
+            return '/image/'+self.mainphoto.name+'/avatar/'
+        return settings.STATIC_URL+'images/avatar.png' 
+    def _get_thumb(self):
+        if(self.mainphoto):
+            return '/image/'+self.mainphoto.name+'/thumb/'
+        return settings.STATIC_URL+'images/thumb.png'
+    thumb=property(_get_thumb)
+    avatar=property(_get_avatar)
 
 
 #Signal for creating member profile on user creation

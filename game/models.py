@@ -2,12 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Category(models.model):
-    name = models.CharField(max_lenth=255)
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    
+class Store(models.Model):
+    name = models.CharField(max_length=255)
+    category = models.ForeignKey('game.Category', blank=True)
+    
+class Post(models.Model):
+    mainphoto=models.ForeignKey(Photo,related_name="post_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
+    store = models.ForeignKey('game.Store')
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    savings = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    percent = models.IntegerField()
+    verified = models.BooleanField(default=False)
 
 class Activity(models.Model):
-    feed = models.ForeignKey(User)
-    user = models.ForeignKey(User)
+    feed = models.ForeignKey(User, related_name="activity_feed")
+    user = models.ForeignKey(User, related_name="activity_user")
     log = models.CharField(max_length=255)
     create_ts=models.DateTimeField(auto_now_add=True)
     
