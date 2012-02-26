@@ -65,9 +65,9 @@ def mailgun(request):
         log.debug("got files")
         post=Post(photo=filename+".jpg")
         post.save()
-        use=User.objects.get(pk=2)
-        logger = Activity(img='/common/'+filename+'.jpg', user=use, log='Just uploaded a receipt (Pending Verification)')
-        logger.save();
+        useme=User.objects.get(pk=2)
+        activ = Activity(img='/common/'+filename+'.jpg', user=useme, log='Just uploaded a receipt (Pending Verification)')
+        activ.save();
     
     log.debug("done")
     # Returned text is ignored but HTTP status code matters:
