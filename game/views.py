@@ -3,6 +3,17 @@ from django_twilio.decorators import twilio_view
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from game.models import Post
+from django.contrib.csrf.middleware import csrf_exempt
+from django.conf import settings
+import logging
+from django.shortcuts import render, redirect
+from images.models import photo_upload_name, Photo
+
+log = logging.getLogger(__name__)
+
+
+def home(request):
+    return redirect('/members/login/')
 
 def rules(request):
     return
@@ -22,28 +33,27 @@ def join_group(request, group_id):
 def create_group(request):
     return
 
-@require_POST
+@csrf_exempt
+#@require_POST
 def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
     body = request.POST.get('body-plain', '')
-    print "got worked"
 
     # attachments:
     for key in request.FILES:
         file = request.FILES[key]
-        print "trying form"
-        form=PhotoForm(request.POST, { key: file })
-        print "got form"
-        if form.is_valid():
-            print "form valid"
-            newphoto=form.save()
-            newphoto.member = request.user.get_profile()
-            post=Post(newphoto)
-            post.member = request.user.get_profile()
-            post.save()
+        filename = handle_upload(file)
+        log.debug("got files")
+        #f = open(settings.MEDIA_ROOT+"/"+filename, 'rb')
+        photo = Photo(photo=filename)
+        photo.save()
+        log.debug("got saved")
+            #post=Post(newphoto)
+            #post.member = request.user.get_profile()
+            #post.save()
     
-    print "done"
+    log.debug("done")
     # Returned text is ignored but HTTP status code matters:
     return HttpResponse('OK')
 
@@ -56,8 +66,9 @@ def twilio(request):
 
 #### Functions ####
 
-def handle_upload(file):
-    destination = open('some/file/name.txt', 'wb+')
+def handle_upload(f):
+    name = photo_upload_name(True, "blah")
+    destination = open(settings.MEDIA_ROOT+"/"+name, 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
-    destination.close()
+    return destination

@@ -25,10 +25,22 @@ class Photo(models.Model):
     member=models.ForeignKey("members.Member", blank=True)
     caption=models.TextField(blank=True, null=True)
     create_ts=models.DateTimeField(auto_now_add=True)
+    url = ""
+    
     def save(self, *args, **kwargs):
         super(Photo, self).save(*args, **kwargs) 
         if len(self.name)==0:
             self.name=os.path.basename(self.photo.name)
-        super(Photo, self).save(*args, **kwargs) 
+        super(Photo, self).save(*args, **kwargs)
+        
+    def manual(self):
+        """Store image locally if we have a URL"""
+        if self.url and not self.photo:
+            self.photo.save(
+                    os.path.basename(self.url),
+                    File(open(self.url))
+                    )
+            self.save()
+
     
     
