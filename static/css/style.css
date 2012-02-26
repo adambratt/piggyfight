@@ -385,6 +385,7 @@ margin-bottom: 20px;
 input {
 font-size: 14px;
 padding: 5px;
+padding-right: 0px;
 }
 .loginbox input{
 width: 560px;
