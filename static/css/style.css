@@ -384,7 +384,8 @@ padding: 10px;
 }
 .login-form input[type=text],.login-form input[type=password]{
 width: 560px;
-
+margin-left: -20px;
+margin-right: -20px;
 }
 .signup input{
 font-size: 20px;
