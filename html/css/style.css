@@ -242,6 +242,24 @@ text-indent: 0;
 margin: 0;
 }
 
+.signup div[role=main] {
+text-align: center;
+margin: 20px auto;
+}
+
+.signup form {
+width: 450px;
+margin: auto;
+text-align: left;
+display: block;
+}
+
+.signup div[role=main] label {
+color: #fff;
+display: block;
+margin-bottom: 20px;
+}
+
 div[role=main]  #news  li{
 list-style: none;
 width: 100%;
@@ -253,6 +271,7 @@ padding: 20px;
 #news  li   img{
 float: left;
 }
+
 #news  li  article {
 float: left;
 margin: 0px 10px;
@@ -275,7 +294,7 @@ h3 {
 text-align: left;
 }
 
-input[type=text]{
+input[type=text],input[type=password]{
 width: 580px;
 margin-bottom: 20px;
 }
@@ -285,8 +304,19 @@ font-size: 40px;
 padding: 10px;
 }
 
+.signup input{
+font-size: 20px;
+padding: 5px;
+width: 100%;
+margin-bottom: 0px;
+}
+
 .login , .login  body{
 margin: 20px auto;
+}
+
+.signup label {
+width: 200px;
 }
 
 header nav ol {
