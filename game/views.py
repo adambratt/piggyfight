@@ -15,10 +15,12 @@ log = logging.getLogger(__name__)
 
 def loader(request):
     if request.POST.get("last"):
-        obj = Activity.objects.filter(pk__gt=request.POST.get("last"))[0]
-    obj = Activity.objects.order_by('pk')[0]
-    if not obj:
+        obj = Activity.objects.filter(pk__gt=request.POST.get("last"))
+    else:
+        obj = Activity.objects.order_by('pk')
+    if not obj or obj.count() < 1:
         return HttpResponse("{}")
+    obj = obj[0]
     data = {}
     data['id'] = obj.pk
     data['img'] = obj.img

@@ -13,10 +13,10 @@
       if (!final.img)
         return;
       cid = final.id;
-      var html = '<div class="item clearfix"><div class="item-image"><img src="'+final.img+'"></div><div class="item-desc"><strong>'+final.user+'</strong> '+final.log+'<br /><div class="time">'+final.time+'</div></div></div>';
+      var html = '<div class="item clearfix" style="display: none;"><div class="item-image"><img src="'+final.img+'"></div><div class="item-desc"><strong>'+final.user+'</strong> '+final.log+'<br /><div class="time">'+final.time+'</div></div></div>';
       $('.items').prepend(html).slideDown();
     });
-    setTimeout("loader()",5000);
+    setTimeout("loader()",2000);
   }
 </script>
   
