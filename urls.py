@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'game.views.home'),
     # Authentication
     url(r'^members/login/$', 'django.contrib.auth.views.login', {'template_name': 'members/login.html'}),
     url(r'^members/logout/$', 'members.views.logout'),

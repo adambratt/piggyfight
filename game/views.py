@@ -11,6 +11,9 @@ from images.models import photo_upload_name, Photo
 log = logging.getLogger(__name__)
 
 
+def home
+    return redirect('/members/login/')
+
 def rules(request):
     return
 
