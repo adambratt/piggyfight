@@ -19,7 +19,7 @@ def logout(request):
 
 def register(request):
     if request.user.is_authenticated():
-        redirect('/dashboard/')
+        return redirect('/dashboard/')
     if request.method=='POST':
         form=RegistrationForm(request.POST)
         if form.is_valid():
@@ -28,7 +28,7 @@ def register(request):
             new_user.save()
             log_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, log_user)
-            redirect('/dashboard/')
+            return redirect('/dashboard/')
     else:
         form=RegistrationForm()
     return render(request,'members/register.html',{'form':form})
