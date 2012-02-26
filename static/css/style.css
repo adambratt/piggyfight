@@ -228,6 +228,11 @@ td { vertical-align: top; }
     
 }
 
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+
 .textinput {
     margin: 10px;
     height: 20px;
