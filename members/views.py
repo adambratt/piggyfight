@@ -30,7 +30,7 @@ def register(request):
             redirect('/dashboard/')
     else:
         form=RegistrationForm()
-    return render(request,'members/registration.html',{'form':form})
+    return render(request,'members/register.html',{'form':form})
 
 
 @login_required    
