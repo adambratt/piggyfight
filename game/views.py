@@ -27,18 +27,23 @@ def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
     body = request.POST.get('body-plain', '')
+    print "got worked"
 
     # attachments:
     for key in request.FILES:
         file = request.FILES[key]
+        print "trying form"
         form=PhotoForm(request.POST, { key: file })
+        print "got form"
         if form.is_valid():
+            print "form valid"
             newphoto=form.save()
             newphoto.member = request.user.get_profile()
             post=Post(newphoto)
             post.member = request.user.get_profile()
             post.save()
-            
+    
+    print "done"
     # Returned text is ignored but HTTP status code matters:
     return HttpResponse('OK')
 
