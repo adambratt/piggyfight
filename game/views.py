@@ -31,6 +31,8 @@ def loader(request):
     return HttpResponse(simplejson.dumps(data))
 
 def home(request):
+    if request.user.is_authenticated():
+        return redirect('/dashboard/')
     return redirect('/members/login/')
 
 def rules(request):
