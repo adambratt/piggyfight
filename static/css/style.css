@@ -240,6 +240,10 @@ width: 600px;
 margin: 0 auto;
 background: white;
 padding: 20px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+-webkit-border-bottom-left-radius: 15px;
+-webkit-border-bottom-right-radius: 15px;
 }
 
 div[role=main]  ol#news {

@@ -45,7 +45,7 @@ def mailgun(request):
         file = request.FILES[key]
         filename = handle_upload(file)
         log.debug("got files")
-        post=Post(photo=filename)
+        post=Post(photo=filename+".jpg")
         post.save()
     
     log.debug("done")
