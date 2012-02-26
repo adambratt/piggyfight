@@ -64,7 +64,7 @@ def twilio(request):
 
 #### Functions ####
 
-def handle_upload(file):
+def handle_upload(f):
     destination = open(settings.MEDIA_ROOT+"/file/test.jpg", 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
