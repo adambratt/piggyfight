@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="login-box">
+  <h3>Register</h3>
+		<form action="/register/" method="post" class='custom nice'>
+			{% csrf_token %}
+			{% if form.errors %}<div class='alert-box error'>{{form.errors}}</div>{% endif %}
+			<label>Email</label>
+			<input type='text' name='email' class='input-text'>
+			<label>Username</label>
+			<input type='text' name='username' class='input-text'>
+			<label>Password</label>
+			<input type='password' name='password1' class='input-text'>
+			<label>Confirm Password</label>
+			<input type='password' name='password2' class='input-text'>
+			<label>Organization Name</label>
+			<input type='text' name='name' class='input-text'>
+			{% for hidden in form.hidden_fields %}
+				{{hidden}}
+			{% endfor %}
+			<div>
+				<input type="submit" value="Submit" id='signup-submit' class='radius nice white button' />
+			</div>
+		</form>
+</div>
+<div class="login-box">
+<img src="{{ STATIC_DIR }}img/piggyfight-wf.png"  width="400" style="margin: 0 auto;" />
+<p>
+  At PiggyFight, you'll create your own fantasy sports version of savings. Create a group with your friends and compete to see who can rack up the most savings at local stores. Top players can go hogwild with awesome free swag from the stores they shop at!
+</p>
+</div>
+  
+{% endblock %}
