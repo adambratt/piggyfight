@@ -6,7 +6,7 @@ from game.models import Post
 from django.contrib.csrf.middleware import csrf_exempt
 from django.conf import settings
 import logging
-from images.models import photo_upload_name
+from images.models import photo_upload_name, Photo
 
 log = logging.getLogger(__name__)
 
@@ -35,20 +35,16 @@ def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
     body = request.POST.get('body-plain', '')
-    log.debug("got post")
 
     # attachments:
     for key in request.FILES:
         file = request.FILES[key]
+        filename = handle_upload(file)
         log.debug("got files")
-        #form=PhotoForm(request.POST, { key: file })
-        handle_upload(file)
-        
-        log.debug("got form")
-        #if form.is_valid():
-         #   log.debug("got valid form")
-          #  newphoto=form.save()
-           # newphoto.member = request.user.get_profile()
+        #f = open(settings.MEDIA_ROOT+"/"+filename, 'rb')
+        photo = Photo(photo=filename)
+        photo.save()
+        log.debug("got saved")
             #post=Post(newphoto)
             #post.member = request.user.get_profile()
             #post.save()
@@ -71,4 +67,4 @@ def handle_upload(f):
     destination = open(settings.MEDIA_ROOT+"/"+name, 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
-    destination.close()
+    return destination
