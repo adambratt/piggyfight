@@ -228,6 +228,12 @@ td { vertical-align: top; }
     
 }
 
+.textinput {
+    margin: 10px;
+    height: 20px;
+    font-size: 14px;
+}
+
 
 html, body {
 background: url('../img/bg.jpg');
@@ -240,6 +246,10 @@ width: 600px;
 margin: 0 auto;
 background: white;
 padding: 20px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+-webkit-border-bottom-left-radius: 15px;
+-webkit-border-bottom-right-radius: 15px;
 }
 
 div[role=main]  ol#news {

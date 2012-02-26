@@ -2,12 +2,20 @@
 
 {% block content %}
 <div class="login-box">
+<img src="{{ STATIC_DIR }}img/piggyfight-wf.png"  width="400" style="margin: 0 auto;" />
+<p>
+  At PiggyFight, you'll create your own fantasy sports version of savings. Create a group with your friends and compete to see who can rack up the most savings at local stores. Top players can go hogwild with awesome free swag from the stores they shop at!
+</p>
+</div>
+  
+<div class="login-box">
   <form method="post" action="">
+    {% csrf_token %}
   <div>
-    <input placeholder="username..." type="text" name="username" />
+    <input placeholder="username..." type="text" name="username" class="textinput" />
   </div>
   <div>
-   <input placeholder="password..." type="password" name="password" />
+   <input placeholder="password..." type="password" name="password" class="textinput" />
   </div>
   <div>
    <div style="text-align: right; ">
@@ -17,5 +25,4 @@
   </div>
   </form>
 </div>
-<img src="{{ STATIC_DIR }}img/piggyfight-wf.png"  width="400" style="margin: 0 auto;" />
 {% endblock %}

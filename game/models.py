@@ -23,8 +23,8 @@ class Store(models.Model):
     category = models.ForeignKey('game.Category', blank=True)
     
 class Post(models.Model):
-    member = models.ForeignKey('members.Member')
-    photo=models.ForeignKey('images.Photo',related_name="post_mainphoto",null=True,blank=True,on_delete=models.SET_NULL)
+    member = models.ForeignKey('members.Member', blank=True)
+    photo = models.CharField(max_length=255)
     store = models.ForeignKey('game.Store', blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     savings = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)

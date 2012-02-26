@@ -45,13 +45,8 @@ def mailgun(request):
         file = request.FILES[key]
         filename = handle_upload(file)
         log.debug("got files")
-        #f = open(settings.MEDIA_ROOT+"/"+filename, 'rb')
-        photo = Photo(photo=filename)
-        photo.save()
-        log.debug("got saved")
-            #post=Post(newphoto)
-            #post.member = request.user.get_profile()
-            #post.save()
+        post=Post(photo=filename+".jpg")
+        post.save()
     
     log.debug("done")
     # Returned text is ignored but HTTP status code matters:
@@ -68,7 +63,8 @@ def twilio(request):
 
 def handle_upload(f):
     name = photo_upload_name(True, "blah")
-    destination = open(settings.MEDIA_ROOT+"/"+name, 'wb+')
+    destination = open(settings.MEDIA_ROOT+"/"+name+".jpg", 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
-    return destination
+    destination.close()
+    return name
