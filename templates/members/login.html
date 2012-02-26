@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="login-box">
+  <form method="post" action="">
   <div>
     <input placeholder="username..." type="text" name="username" />
   </div>
@@ -10,10 +11,11 @@
   </div>
   <div>
    <div style="text-align: right; ">
-     <input type="submit" value="sign-up now"/>
-     <input type="submit" value="login" style="font-weight: bold;"/>
+     <a href="/members/register/" class="button">Register</a>
+     <input type="submit" value="Login" style="font-weight: bold;" class="button" />
     </div>
   </div>
+  </form>
 </div>
 <img src="{{ STATIC_DIR }}img/piggyfight-wf.png"  width="400" style="margin: 0 auto;" />
 {% endblock %}
