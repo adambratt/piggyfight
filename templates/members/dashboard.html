@@ -13,7 +13,7 @@
       if (!final.img)
         return;
       var html = '<div class="item clearfix"><div class="item-image"><img src="'+final.img+'"></div><div class="item-desc"><strong>'+final.user+'</strong> '+final.log+'<br /><div class="time">'+final.time+'</div></div></div>';
-      $('.items').prepend(html);
+      $('.items').prepend(html).slideDown();
     });
     setTimeout("loader()",5000);
   }
