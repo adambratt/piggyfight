@@ -9,6 +9,7 @@
 </div>
   
 <div class="login-box">
+  <h3>Join the fun!</h3>
   <form method="post" action="">
     {% csrf_token %}
   <div>
@@ -18,9 +19,9 @@
    <input placeholder="password..." type="password" name="password" class="textinput" />
   </div>
   <div>
-   <div style="text-align: right; ">
-     <a href="/members/register/" class="button">Register</a>
+   <div style="text-align: center; ">
      <input type="submit" value="Login" style="font-weight: bold;" class="button" />
+     <a href="/members/register/" class="button">Register</a>
     </div>
   </div>
   </form>
