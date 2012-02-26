@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'game',
     'images',
     'members',
+    #'django_twilio',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -116,6 +117,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 )
+
+AUTH_PROFILE_MODULE = 'members.Member'
+
+TWILIO_ACCOUNT_SID = 'AC0f6e97bcfa974869b7d1386985897075'
+TWILIO_AUTH_TOKEN = '73127bc3a47e666c851b14474e46c23d'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^group/(?P<group_id>\w+)/join/$', 'game.views.join_group'),
     # Game Views
     url(r'^game/leaderboard/$', 'game.views.leaderboard'),
-    url(r'^game/rules/$', 'game.views.rules'),
+    url(r'^game/rules/$', 'django.views.generic.simple.direct_to_template', {'template': 'game/rules.html'}),
     url(r'^game/verify/$', 'game.views.verify'),
+    url(r'^game/twilio/$', 'game.views.twilio'),
+    url(r'^mailgun/$', 'game.views.mailgun'),
 )
