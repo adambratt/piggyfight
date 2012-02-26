@@ -27,5 +27,5 @@ urlpatterns = patterns('',
     url(r'^game/verify/$', 'game.views.verify'),
     url(r'^game/twilio/$', 'game.views.twilio'),
     url(r'^mailgun/$', 'game.views.mailgun'),
-    url(r'^/load/$', 'game.views.loader'),
+    url(r'^load/$', 'game.views.loader'),
 )
