@@ -12,6 +12,9 @@ def dashboard(request):
 def login(request):
     return
 
+def logout(request):
+    return
+
 def register(request):
     return
 
