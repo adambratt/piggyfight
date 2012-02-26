@@ -3,7 +3,7 @@
 {% block content %}
 <div class="login-box">
   <h3>Register</h3>
-		<form action="/register/" method="post" class='custom nice'>
+		<form action="/members/register/" method="post" class='custom nice'>
 			{% csrf_token %}
 			{% if form.errors %}<div class='alert-box error'>{{form.errors}}</div>{% endif %}
 			<label>Email</label>
