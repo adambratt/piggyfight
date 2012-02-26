@@ -171,7 +171,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'MYAPP': {
+        'game': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },
