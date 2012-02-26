@@ -6,6 +6,7 @@ from game.models import Post
 from django.contrib.csrf.middleware import csrf_exempt
 from django.conf import settings
 import logging
+from django.shortcuts import render, redirect
 from images.models import photo_upload_name, Photo
 
 log = logging.getLogger(__name__)
