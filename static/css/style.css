@@ -363,7 +363,20 @@ border-radius: 10px;
    color: #fff;
    }
 
-
+input[type=text],input[type=password]{
+width: 580px;
+margin-bottom: 20px;
+}
+input {
+font-size: 40px;
+padding: 10px;
+}
+.signup input{
+font-size: 20px;
+padding: 5px;
+width: 100%;
+margin-bottom: 0px;
+}
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles
