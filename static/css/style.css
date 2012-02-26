@@ -223,7 +223,9 @@ td { vertical-align: top; }
     padding: 20px;
     border-radius: 10px;
     border: 1px dotted #666;
-    margin: 0 auto;
+    margin: 10px auto;
+    width: 600px;
+    
 }
 
 
