@@ -235,6 +235,8 @@ margin: 0px auto;
 body header, div[role=main]  {
 width: 600px;
 margin: auto;
+background: white;
+padding: 20px;
 }
 
 div[role=main]  ol#news {
