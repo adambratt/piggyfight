@@ -31,25 +31,29 @@
        Create your own custom Modernizr build: www.modernizr.com/download/ -->
   <script src="{{ STATIC_DIR }}js/libs/modernizr-2.5.3.min.js"></script>
 </head>
-<body style="background: #e5e5e5;">
+<body style="background: #e5e5e5; background-image: none;">
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-<div style="background: #e6f9d3;">
+<div style="background: #e6f9d3; box-shadow: 0px 2px 2px #666; border-bottom: 2px solid #96a9cc; padding-bottom: 5px;">
     <div class="container">
     <img src="{{ STATIC_DIR }}img/piggyfight-logo.png" width="300" />
     </div>
 </div>
 <div class="container clearfix" style="margin-top: 25px">
 
-    <div class='inner' style="padding: 20px; background: white; box-shadow: 2px 2px 2px #333; border-radius: 5px;">
-        <div class="width: 70%; float: left; border-right: 1px solid #ccc;">
+    <div class='inner' style="width: 960px; background: white; box-shadow: 0px 2px 2px #666; border-radius: 5px;">
+        <div class="width: 659px; float: left; border-right: 1px solid #ccc; background: #f7f7f7; min-height: 500px;">
             {% block content %}
             Content
             {% endblock %}
         </div>
-        <div class="width: 30%; float: left; min-height: 500px; background: #cafc97;">
-            
+        <div class="width: 300px; float: left; min-height: 500px; background: #cafc97;">
+            <h4>Your Badges</h4>
+            <img src='{{STATIC_DIR}}img/badge1.png'>
+            <img src='{{STATIC_DIR}}img/badge2.png'>
+            <img src='{{STATIC_DIR}}img/badge3.png'>
+            <img src='{{STATIC_DIR}}img/badge3.png'>
         </div>
     </div>
 </div>
