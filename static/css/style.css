@@ -218,16 +218,18 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
+.login-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dotted #666;
+}
 
 
 html, body {
 background-color: #669933;
 text-align: center;
 margin: 0px auto;	
-}
-
-body {
-padding: 20px;	
 }
 
 body header, div[role=main]  {
@@ -275,15 +277,6 @@ h3 {
 text-align: left;
 }
 
-input[type=text]{
-width: 580px;
-margin-bottom: 20px;
-}
-
-input {
-font-size: 40px;
-padding: 10px;
-}
 
 .login , .login  body{
 margin: 20px auto;
