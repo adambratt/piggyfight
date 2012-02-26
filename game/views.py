@@ -12,6 +12,9 @@ from images.models import photo_upload_name, Photo
 log = logging.getLogger(__name__)
 
 
+def loader(request):
+    return
+
 def home(request):
     return redirect('/members/login/')
 

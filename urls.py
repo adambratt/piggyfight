@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
     # Member Views
     url(r'^dashboard/$', 'members.views.dashboard'),
+    url(r'^accounts/profile/$', 'members.views.dashboard'),
     url(r'^members/upload_photo/$', 'members.views.upload_photo'),
     # Group Views
     url(r'^group/create/$', 'game.views.create_group'),
@@ -26,4 +27,5 @@ urlpatterns = patterns('',
     url(r'^game/verify/$', 'game.views.verify'),
     url(r'^game/twilio/$', 'game.views.twilio'),
     url(r'^mailgun/$', 'game.views.mailgun'),
+    url(r'^/load/$', 'game.views.loader'),
 )

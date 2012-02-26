@@ -1,6 +1,17 @@
 {% extends 'inner.html' %}
 
 {% block content %}
+  
+<script type='text/javascript'>
+  $(function(){
+    
+  })
+  function loader(){
+    $.post('/load/')
+    setTimeout("loader()",5000);
+  }
+</script>
+  
 <div style="padding: 15px 20px; border-bottom: 1px solid #d9d9d9; background: #f3ff92;">
 <h2 style="margin: 0;">Dashboard Feed</h2>
 </div>
