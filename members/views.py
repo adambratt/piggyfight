@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from members.forms import PhotoForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout as logmeout
 from members.forms import RegistrationForm
 from django.contrib.auth.models import User
 
@@ -14,7 +14,7 @@ def dashboard(request):
 
 @login_required
 def logout(request):
-    django.contrib.auth.logout(request)
+    logmeout(request)
     return redirect('/')
 
 def register(request):
