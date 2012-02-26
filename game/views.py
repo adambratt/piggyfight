@@ -33,7 +33,7 @@ def create_group(request):
     return
 
 @csrf_exempt
-@require_POST
+#@require_POST
 def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
