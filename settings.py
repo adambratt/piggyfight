@@ -108,7 +108,7 @@ INSTALLED_APPS = (
     'game',
     'images',
     'members',
-    'djagno_twilio',
+    #'django_twilio',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
