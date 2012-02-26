@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from game.models import Post
 from django.contrib.csrf.middleware import csrf_exempt
+from django.conf import settings
 import logging
 
 log = logging.getLogger(__name__)
@@ -39,15 +40,16 @@ def mailgun(request):
     for key in request.FILES:
         file = request.FILES[key]
         log.debug("got files")
-        form=PhotoForm(request.POST, { key: file })
+        #form=PhotoForm(request.POST, { key: file })
+        handle_upload(file)
         log.debug("got form")
-        if form.is_valid():
-            log.debug("got valid form")
-            newphoto=form.save()
-            newphoto.member = request.user.get_profile()
-            post=Post(newphoto)
-            post.member = request.user.get_profile()
-            post.save()
+        #if form.is_valid():
+         #   log.debug("got valid form")
+          #  newphoto=form.save()
+           # newphoto.member = request.user.get_profile()
+            #post=Post(newphoto)
+            #post.member = request.user.get_profile()
+            #post.save()
     
     log.debug("done")
     # Returned text is ignored but HTTP status code matters:
@@ -63,7 +65,7 @@ def twilio(request):
 #### Functions ####
 
 def handle_upload(file):
-    destination = open('some/file/name.txt', 'wb+')
+    destination = open(settings.MEDIA_ROOT+"/file/test.jpg", 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
     destination.close()
