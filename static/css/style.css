@@ -385,11 +385,11 @@ margin-bottom: 20px;
 }
 input {
 font-size: 40px;
-padding: 10px;
+padding: 5px;
 }
 .loginbox input{
 width: 560px;
-margin-left: -20px;
+margin-left: -30px;
 margin-right: -20px;
 }
 .signup input{
