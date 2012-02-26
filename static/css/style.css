@@ -220,9 +220,10 @@ td { vertical-align: top; }
 
 .login-box {
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     border: 1px dotted #666;
+    margin: 0 auto;
 }
 
 
@@ -232,9 +233,9 @@ text-align: center;
 margin: 0px auto;	
 }
 
-body header, div[role=main]  {
+body header  {
 width: 600px;
-margin: auto;
+margin: 0 auto;
 background: white;
 padding: 20px;
 }
