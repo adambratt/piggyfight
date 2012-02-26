@@ -376,10 +376,15 @@ border-radius: 10px;
 input[type=text],input[type=password]{
 width: 100%;
 margin-bottom: 20px;
+
 }
 input {
 font-size: 40px;
 padding: 10px;
+}
+.login-form input[type=text],.login-form input[type=password]{
+width: 560px;
+
 }
 .signup input{
 font-size: 20px;
