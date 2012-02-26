@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from game.models import Post, Activity
 from django.contrib.csrf.middleware import csrf_exempt
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.utils import simplejson
 import logging
 from django.shortcuts import render, redirect
@@ -64,6 +65,9 @@ def mailgun(request):
         log.debug("got files")
         post=Post(photo=filename+".jpg")
         post.save()
+        use=User.objects.get(pk=2)
+        log = Activity(img='/common/'+filename+'.jpg', user=use, log='Just uploaded a receipt (Pending Verification)', time='Just Now')
+        log.save();
     
     log.debug("done")
     # Returned text is ignored but HTTP status code matters:
