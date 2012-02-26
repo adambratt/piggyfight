@@ -43,13 +43,17 @@
 <div class="container clearfix" style="margin-top: 25px">
 
     <div class='inner' style="padding: 20px; background: white; box-shadow: 2px 2px 2px #333; border-radius: 5px;">
-        <div class="width: 70%; float: left; border-right: 1px solid #ccc;">
+        <div class="width: 70%; float: left; border-right: 1px solid #ccc; background: #f7f7f7;">
             {% block content %}
             Content
             {% endblock %}
         </div>
         <div class="width: 30%; float: left; min-height: 500px; background: #cafc97;">
-            
+            <h4>Your Badges</h4>
+            <img src='{{STATIC_DIR}}img/badge1.png'>
+            <img src='{{STATIC_DIR}}img/badge2.png'>
+            <img src='{{STATIC_DIR}}img/badge3.png'>
+            <img src='{{STATIC_DIR}}img/badge3.png'>
         </div>
     </div>
 </div>
