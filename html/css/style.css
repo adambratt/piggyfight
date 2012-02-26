@@ -222,14 +222,49 @@ td { vertical-align: top; }
 
 html, body {
 background-color: #669933;
-color: #fff;
 text-align: center;
-margin: 20px auto;
+margin: 0px auto;	
+}
+
+body {
+padding: 20px;	
 }
 
 body header, div[role=main]  {
 width: 600px;
 margin: auto;
+}
+
+div[role=main]  ol#news {
+list-style: none;
+padding: 0;
+text-indent: 0;
+margin: 0;
+}
+
+div[role=main]  #news  li{
+list-style: none;
+width: 100%;
+clear: both;
+height: 60px;
+padding: 20px;
+}
+
+#news  li   img{
+float: left;
+}
+#news  li  article {
+float: left;
+margin: 0px 10px;
+}
+
+#news  article .news {
+font-size: 14pt;
+}
+
+#news .datetime {
+color: #666;
+text-align: right;
 }
 
 h2 {
@@ -250,15 +285,35 @@ font-size: 40px;
 padding: 10px;
 }
 
+.login , .login  body{
+margin: 20px auto;
+}
 
+header nav ol {
+list-style: none;
+}
 
+header nav {
+float: right;
+margin-left: -5px;
+}
 
+header nav ol  li{
+float: left;
+margin: 5px;
+font-size: 20pt;
+line-height: 61px;
+vertical-align: bottom;
+}
 
+#news {
+text-align: left;
+width: 380px;
+background-color: #fff;
+clear: both;
+border-radius: 10px;
 
-
-
-
-
+}
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles
