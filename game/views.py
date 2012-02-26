@@ -3,6 +3,7 @@ from django_twilio.decorators import twilio_view
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from game.models import Post
+from django.contrib.csrf.middleware import csrf_exempt
 import logging
 
 log = logging.getLogger(__name__)
@@ -26,7 +27,8 @@ def join_group(request, group_id):
 def create_group(request):
     return
 
-#@require_POST
+@csrf_exempt
+@require_POST
 def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
