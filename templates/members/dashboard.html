@@ -1,9 +1,45 @@
 {% extends 'inner.html' %}
 
 {% block content %}
-
+<div style="padding: 20px;">
 <h3>Dashboard</h3>
-
+</div>
+<div class="items">
+  <div class="item clearfix">
+    <div class="item-image">
+      <img src="{{ STATIC_URL }}img/badge1.png">
+    </div>
+    <div class="item-desc">
+      <strong>monkeyman8</strong> just got the "Brass Knuckles" badge!<br />
+      <div class="time">5 minutes ago</div>
+    </div>
+  </div>
+</div>
+<style type='text/css'>
+  .item {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 20px;
+  }
+  .item-desc {
+    float: left;
+    width: 480px;
+  }
+  .item-image {
+    float: left;
+    width: 90px;
+  }
+  .item-desc .time {
+    font-size: 12px;
+    color: #ccc;
+  }
+  .item-image img{
+    width: 75px;
+    height: 75px;
+  }
+  .items:first-child {
+    border-top: 1px solid #d9d9d9;
+  }
+</style>
 
 
 {% endblock %}
