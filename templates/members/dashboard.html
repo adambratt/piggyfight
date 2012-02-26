@@ -3,11 +3,18 @@
 {% block content %}
   
 <script type='text/javascript'>
+  var cid =0;
   $(function(){
-    
+    loader();
   })
   function loader(){
-    $.post('/load/')
+    $.post('/load/', {last: cid}, function(data){
+      var final = $.parseJSON(data);
+      if (!final.img)
+        return;
+      var html = '<div class="item clearfix"><div class="item-image"><img src="'+final.img+'"></div><div class="item-desc"><strong>'+final.user+'</strong> '+final.log+'<br /><div class="time">'+final.time+'</div></div></div>';
+      $('.items').prepend(html);
+    });
     setTimeout("loader()",5000);
   }
 </script>

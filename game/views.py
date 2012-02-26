@@ -2,9 +2,10 @@ from twilio.twiml import Response
 from django_twilio.decorators import twilio_view
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
-from game.models import Post
+from game.models import Post, Activity
 from django.contrib.csrf.middleware import csrf_exempt
 from django.conf import settings
+from django.utils import simplejson
 import logging
 from django.shortcuts import render, redirect
 from images.models import photo_upload_name, Photo
@@ -13,7 +14,18 @@ log = logging.getLogger(__name__)
 
 
 def loader(request):
-    return
+    if request.POST.get("last"):
+        obj = Activity.objects.filter(pk__gt=request.POST.get("last"))[0]
+    obj = Activity.objects.order_by('pk')[0]
+    if not obj:
+        return HttpResponse("{}")
+    data = {}
+    data['id'] = obj.pk
+    data['img'] = obj.img
+    data['user'] = obj.user.username
+    data['log'] = obj.log
+    data['time'] = "Just Now"
+    return HttpResponse(simplejson.dumps(data))
 
 def home(request):
     return redirect('/members/login/')

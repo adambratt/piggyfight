@@ -44,9 +44,9 @@ class MMS(models.Model):
     photo = models.ImageField(upload_to=upload_name, blank=True)
 
 class Activity(models.Model):
-    feed = models.ForeignKey(User, related_name="activity_feed")
     user = models.ForeignKey(User, related_name="activity_user")
     log = models.CharField(max_length=255)
+    img = models.CharField(max_length=255)
     create_ts=models.DateTimeField(auto_now_add=True)
     
 class Badge(models.Model):
