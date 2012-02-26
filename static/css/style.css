@@ -352,7 +352,7 @@ border-radius: 10px;
    -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
    box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
    text-shadow: #7ea4bd 0 1px 0;
-   color: #ffffff;
+   color: #ffffff !important;
    font-size: 14px;
    font-family: helvetica, serif;
    text-decoration: none;
@@ -369,7 +369,7 @@ border-radius: 10px;
    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
    background: -o-linear-gradient(top, #65a9d7, #3e779d);
    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-   color: #fff;
+   color: #fff !important;
    }
 .button:active {
    text-shadow: #1e4158 0 1px 0;
