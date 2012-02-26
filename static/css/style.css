@@ -227,7 +227,7 @@ td { vertical-align: top; }
 
 
 html, body {
-background-color: #669933;
+background: url('../img/bg.jpg');
 text-align: center;
 margin: 0px auto;	
 }
