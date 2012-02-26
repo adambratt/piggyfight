@@ -6,6 +6,7 @@ from game.models import Post
 from django.contrib.csrf.middleware import csrf_exempt
 from django.conf import settings
 import logging
+from images.models import photo_upload_name
 
 log = logging.getLogger(__name__)
 
@@ -42,6 +43,7 @@ def mailgun(request):
         log.debug("got files")
         #form=PhotoForm(request.POST, { key: file })
         handle_upload(file)
+        
         log.debug("got form")
         #if form.is_valid():
          #   log.debug("got valid form")
@@ -65,7 +67,8 @@ def twilio(request):
 #### Functions ####
 
 def handle_upload(f):
-    destination = open(settings.MEDIA_ROOT+"/file/test.jpg", 'wb+')
+    name = photo_upload_name(True, "blah")
+    destination = open(settings.MEDIA_ROOT+"/"+name, 'wb+')
     for chunk in f.chunks():
         destination.write(chunk)
     destination.close()
