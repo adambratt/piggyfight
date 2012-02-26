@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Authentication
     url(r'^members/login/$', 'django.contrib.auth.views.login', {'template_name': 'members/login.html'}),
     url(r'^members/logout/$', 'members.views.logout'),
+    url(r'^members/register/$', 'members.views.register'),
     # Image serving
     url(r'^image/(?P<image_id>\w+)/$', 'images.views.load'),
     url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
