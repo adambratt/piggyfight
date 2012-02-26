@@ -35,9 +35,10 @@
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-<div style="background: #e6f9d3; border-bottom: 2px solid #7cbf3a; padding-bottom: 5px;">
+<div style="background: #e6f9d3; border-bottom: 2px solid #7cbf3a; padding: 10px 0px;">
     <div class="container">
     <img src="{{ STATIC_DIR }}img/piggyfight-logo.png" width="300" />
+    <div class="float: right; padding-top: 10px;">Logged in as {{user}} <a href="" class="button">Logout</a></div>
     </div>
 </div>
 <div class="container clearfix" style="margin-top: 25px">
@@ -51,11 +52,13 @@
             </div>
         </div>
         <div style="width: 300px; float: left; min-height: 700px; background: #eaffb7;">
-            <h4 style='padding: 10px; background: #cafc97;'>Your Badges</h4>
+            <h4 style='padding: 10px; background: #6caf1a; color: white;'>Your Badges</h4>
+            <div style="padding: 10px;">
             <img src='{{STATIC_DIR}}img/badge1.png'>
             <img src='{{STATIC_DIR}}img/badge2.png'>
             <img src='{{STATIC_DIR}}img/badge3.png'>
             <img src='{{STATIC_DIR}}img/badge4.png'>
+            </div>
         </div>
     </div>
     <div class='margin-top: 75px; color: white; text-align: center;'>&copy; 2012 - PiggyFight - A Hog Labs Production</div>
