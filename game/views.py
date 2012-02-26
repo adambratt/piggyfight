@@ -3,6 +3,10 @@ from django_twilio.decorators import twilio_view
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from game.models import Post
+import logging
+
+log = logging.getLogger(__name__)
+
 
 def rules(request):
     return
@@ -22,28 +26,28 @@ def join_group(request, group_id):
 def create_group(request):
     return
 
-@require_POST
+#@require_POST
 def mailgun(request):
     sender    = request.POST.get('sender')
     subject   = request.POST.get('subject', '')
     body = request.POST.get('body-plain', '')
-    print "got worked"
+    log.debug("got post")
 
     # attachments:
     for key in request.FILES:
         file = request.FILES[key]
-        print "trying form"
+        log.debug("got files")
         form=PhotoForm(request.POST, { key: file })
-        print "got form"
+        log.debug("got form")
         if form.is_valid():
-            print "form valid"
+            log.debug("got valid form")
             newphoto=form.save()
             newphoto.member = request.user.get_profile()
             post=Post(newphoto)
             post.member = request.user.get_profile()
             post.save()
     
-    print "done"
+    log.debug("done")
     # Returned text is ignored but HTTP status code matters:
     return HttpResponse('OK')
 
