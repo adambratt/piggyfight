@@ -228,6 +228,12 @@ td { vertical-align: top; }
     
 }
 
+.textinput {
+    margin: 10px;
+    height: 20px;
+    font-size: 14px;
+}
+
 
 html, body {
 background: url('../img/bg.jpg');
